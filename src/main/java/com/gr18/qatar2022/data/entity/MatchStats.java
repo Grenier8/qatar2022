@@ -33,8 +33,7 @@ public class MatchStats {
     public MatchStats() {
     }
 
-    public MatchStats(Long id, Integer goals, Integer yellowCards, Integer redCards, Integer possession) {
-        this.id = id;
+    public MatchStats(Integer goals, Integer yellowCards, Integer redCards, Integer possession) {
         this.goals = goals;
         this.yellowCards = yellowCards;
         this.redCards = redCards;

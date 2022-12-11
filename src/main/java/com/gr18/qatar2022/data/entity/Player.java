@@ -2,17 +2,17 @@ package com.gr18.qatar2022.data.entity;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
-import com.fasterxml.jackson.core.sym.Name;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity(name = "Player")
-@Table(name = "table")
+@Table(name = "player")
 public class Player {
     @Id
     @SequenceGenerator(name = "player_sequence", sequenceName = "player_sequence", allocationSize = 1)
@@ -22,6 +22,9 @@ public class Player {
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "number", nullable = false)
+    private Integer number;
 
     @Column(name = "goals", nullable = false)
     private Integer goals;
@@ -35,21 +38,22 @@ public class Player {
     @Column(name = "red_cards")
     private Integer redCards;
 
-    @Column(name = "id_team")
-    private Long idTeam;
+    @ManyToOne
+    @JoinColumn(name = "id_team", updatable = false)
+    private Team team;
 
     public Player() {
     }
 
-    public Player(Long id, String name, Integer goals, Integer assists, Integer yellowCards, Integer redCards,
-            Long idTeam) {
-        this.id = id;
+    public Player(String name, Integer number, Integer goals, Integer assists, Integer yellowCards,
+            Integer redCards, Team team) {
         this.name = name;
+        this.number = number;
         this.goals = goals;
         this.assists = assists;
         this.yellowCards = yellowCards;
         this.redCards = redCards;
-        this.idTeam = idTeam;
+        this.team = team;
     }
 
     public Long getId() {
@@ -66,6 +70,14 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public Integer getGoals() {
@@ -100,12 +112,12 @@ public class Player {
         this.redCards = redCards;
     }
 
-    public Long getIdTeam() {
-        return this.idTeam;
+    public Team getTeam() {
+        return this.team;
     }
 
-    public void setIdTeam(Long idTeam) {
-        this.idTeam = idTeam;
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     @Override
@@ -113,10 +125,12 @@ public class Player {
         return "{" +
                 " id='" + getId() + "'" +
                 ", name='" + getName() + "'" +
+                ", number='" + getNumber() + "'" +
                 ", goals='" + getGoals() + "'" +
                 ", assists='" + getAssists() + "'" +
                 ", yellowCards='" + getYellowCards() + "'" +
                 ", redCards='" + getRedCards() + "'" +
+                ", team='" + getTeam() + "'" +
                 "}";
     }
 

@@ -8,14 +8,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity(name = "Team")
-@Table(name = "team")
+@Table(name = "team", uniqueConstraints = {
+        @UniqueConstraint(name = "team_name_unique", columnNames = "name"),
+        @UniqueConstraint(name = "team_small_name_unique", columnNames = "small_name")
+})
 public class Team {
     @Id
     @SequenceGenerator(name = "team_sequence", sequenceName = "team_sequence", allocationSize = 1)
     @GeneratedValue(strategy = SEQUENCE, generator = "team_sequence")
     private Long id;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "small_name", nullable = false)
+    private String smallName;
 
     @Column(name = "goals_for", nullable = false)
     private Integer goalsFor;
@@ -32,8 +42,11 @@ public class Team {
     public Team() {
     }
 
-    public Team(Long id, Integer goalsFor, Integer goalsAgainst, Integer yellowCards, Integer redCards) {
+    public Team(Long id, String name, String smallName, Integer goalsFor, Integer goalsAgainst, Integer yellowCards,
+            Integer redCards) {
         this.id = id;
+        this.name = name;
+        this.smallName = smallName;
         this.goalsFor = goalsFor;
         this.goalsAgainst = goalsAgainst;
         this.yellowCards = yellowCards;
@@ -46,6 +59,22 @@ public class Team {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSmallName() {
+        return this.smallName;
+    }
+
+    public void setSmallName(String smallName) {
+        this.smallName = smallName;
     }
 
     public Integer getGoalsFor() {
@@ -78,17 +107,6 @@ public class Team {
 
     public void setRedCards(Integer redCards) {
         this.redCards = redCards;
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-                " id='" + getId() + "'" +
-                ", goalsFor='" + getGoalsFor() + "'" +
-                ", goalsAgainst='" + getGoalsAgainst() + "'" +
-                ", yellowCards='" + getYellowCards() + "'" +
-                ", redCards='" + getRedCards() + "'" +
-                "}";
     }
 
 }
