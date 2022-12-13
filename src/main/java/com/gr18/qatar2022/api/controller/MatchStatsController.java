@@ -15,7 +15,7 @@ import com.gr18.qatar2022.data.entity.MatchStats;
 import com.gr18.qatar2022.service.MatchStatsService;
 
 @RestController
-@RequestMapping(path = "/api/v1/match_stats")
+@RequestMapping(path = "/api/v1/match-stats")
 public class MatchStatsController {
 
     @Autowired
