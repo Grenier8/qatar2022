@@ -1,5 +1,9 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -8,10 +12,18 @@ body {
 }
 
 .header {
-  padding: 8px 0px 10px 20px;
+  height: 50px;
+  padding-left: 20px;
+  padding-top: 10px;
   background-color: black;
   color: rgb(167, 167, 167);
   font-size: 0.8em;
+}
+
+.vertical-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .menu-box-container {
@@ -30,5 +42,35 @@ body {
   background-color: rgba(70, 70, 70, 0.6);
   color: rgb(230, 230, 230);
   font-size: 0.8em;
-  padding-left: 20px;
+  padding: 10px 0px 10px 20px;
+}
+
+.header-group-table {
+  text-align: center;
+  height: 20px;
+  padding-top: 0.1em;
+}
+
+.save-button {
+  width: 100%;
+  text-align: center;
+  background-color: rgb(36, 36, 36);
+  color: rgb(117, 117, 117);
+  padding: 10px 0px 10px 0px;
+}
+
+.match-results {
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.match-results * {
+  margin: 10px;
+}
+
+.input-score {
+  width: 30px;
+  border: 0;
+  border-bottom: 1px black solid;
+  text-align: center;
 }

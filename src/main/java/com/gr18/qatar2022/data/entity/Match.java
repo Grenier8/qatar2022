@@ -28,6 +28,9 @@ public class Match {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
+    @Column(name = "phase")
+    private Integer phase;
+
     @Column(name = "ended")
     private Boolean ended;
 
@@ -50,10 +53,11 @@ public class Match {
     public Match() {
     }
 
-    public Match(Long id, Date date, Team homeTeam, Team awayTeam, MatchStats homeMatchStats,
+    public Match(Long id, Date date, Integer phase, Team homeTeam, Team awayTeam, MatchStats homeMatchStats,
             MatchStats awayMatchStats) {
         this.id = id;
         this.date = date;
+        this.phase = phase;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.homeMatchStats = homeMatchStats;
@@ -90,6 +94,26 @@ public class Match {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Integer getPhase() {
+        return this.phase;
+    }
+
+    public void setPhase(Integer phase) {
+        this.phase = phase;
+    }
+
+    public Boolean isEnded() {
+        return this.ended;
+    }
+
+    public Boolean getEnded() {
+        return this.ended;
+    }
+
+    public void setEnded(Boolean ended) {
+        this.ended = ended;
     }
 
     public MatchStats getHomeMatchStats() {
