@@ -39,11 +39,14 @@ public class Team {
     @Column(name = "red_cards", nullable = false)
     private Integer redCards;
 
+    @Column(name = "group_name", nullable = false)
+    private String group;
+
     public Team() {
     }
 
     public Team(Long id, String name, String smallName, Integer goalsFor, Integer goalsAgainst, Integer yellowCards,
-            Integer redCards) {
+            Integer redCards, String group) {
         this.id = id;
         this.name = name;
         this.smallName = smallName;
@@ -51,6 +54,7 @@ public class Team {
         this.goalsAgainst = goalsAgainst;
         this.yellowCards = yellowCards;
         this.redCards = redCards;
+        this.group = group;
     }
 
     public Long getId() {
@@ -107,6 +111,14 @@ public class Team {
 
     public void setRedCards(Integer redCards) {
         this.redCards = redCards;
+    }
+
+    public String getGroup() {
+        return this.group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 
 }

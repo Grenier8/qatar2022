@@ -1,8 +1,20 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Header from "../Header"
 import Match from "../Match"
 
-const GroupStagePage = ({ group, color }) => {
+const GroupStagePage = ({ url, teams, group, color }) => {
+  const [matches, setMatches] = useState([])
+
+  useEffect(() => {
+    getMatches()
+  }, [])
+
+  const getMatches = () => {
+    return fetch(url + "/matches/")
+      .then((response) => response.json())
+      .then((data) => setMatches(data))
+  }
+
   return (
     <div className='main-container'>
       <Header />
@@ -11,7 +23,7 @@ const GroupStagePage = ({ group, color }) => {
       </div>
       <table></table>
       <button className='save-button'>SAVE</button>
-      <Match />
+      <Match match={matches[0]} />
       <div className='vertical-container'></div>
     </div>
   )

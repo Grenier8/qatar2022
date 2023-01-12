@@ -3,6 +3,7 @@ package com.gr18.qatar2022.api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gr18.qatar2022.data.entity.MatchStats;
 import com.gr18.qatar2022.service.MatchStatsService;
 
+@CrossOrigin(origins = { "*" }, maxAge = 4800, allowCredentials = "false")
 @RestController
 @RequestMapping(path = "/api/v1/match-stats")
 public class MatchStatsController {
