@@ -17,9 +17,9 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='container p-0'>
       {/* <HomePage /> */}
-      <GroupStagePage url={url} teams={teams} group={"A"} color={"purple"} />
+      <GroupStagePage group={"A"} color={"purple"} />
     </div>
   )
 }
