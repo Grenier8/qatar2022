@@ -6,6 +6,10 @@ class MatchService {
   getMatches() {
     return axios.get(URL)
   }
+
+  getMatchesByGroup(group) {
+    return axios.get(URL + `group/${group}/`)
+  }
 }
 
 export default new MatchService()

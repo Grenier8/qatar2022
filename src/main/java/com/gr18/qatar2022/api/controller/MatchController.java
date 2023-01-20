@@ -33,6 +33,11 @@ public class MatchController {
         return service.getById(id);
     }
 
+    @GetMapping(path = "/group/{group}/")
+    public List<Match> getAllByGroup(@PathVariable String group) {
+        return service.getAllByGroup(group);
+    }
+
     @PostMapping(path = "/")
     public void save(@RequestBody Match match) {
         service.save(match);

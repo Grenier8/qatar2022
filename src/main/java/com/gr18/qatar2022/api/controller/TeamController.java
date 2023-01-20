@@ -33,6 +33,11 @@ public class TeamController {
         return service.getById(id);
     }
 
+    @GetMapping(path = "/group/{group}/")
+    public List<Team> getAllByGroup(@PathVariable String group) {
+        return service.getAllByGroup(group);
+    }
+
     @PostMapping(path = "/")
     public void save(@RequestBody Team team) {
         service.save(team);

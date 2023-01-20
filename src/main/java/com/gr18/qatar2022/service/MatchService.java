@@ -22,6 +22,10 @@ public class MatchService {
         return repository.findById(id).get();
     }
 
+    public List<Match> getAllByGroup(String group) {
+        return repository.findAllByGroup(group);
+    }
+
     public void save(Match match) {
         repository.save(match);
     }

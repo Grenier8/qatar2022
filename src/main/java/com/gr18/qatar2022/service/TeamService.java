@@ -22,6 +22,10 @@ public class TeamService {
         return repository.findById(id).get();
     }
 
+    public List<Team> getAllByGroup(String group) {
+        return repository.findAllByGroup(group);
+    }
+
     public void save(Team team) {
         repository.save(team);
     }
