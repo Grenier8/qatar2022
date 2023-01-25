@@ -10,6 +10,10 @@ class MatchService {
   getMatchesByGroup(group) {
     return axios.get(URL + `group/${group}/`)
   }
+
+  saveMatches(matches) {
+    matches.map((match) => (match.ended ? axios.post(URL, match) : ""))
+  }
 }
 
 export default new MatchService()

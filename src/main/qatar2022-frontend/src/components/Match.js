@@ -2,11 +2,20 @@ import React from "react"
 import ImagesLoader from "../utils/ImagesLoader"
 
 const Match = ({ match }) => {
+  const saveHomeGoals = (goals) => {
+    match.homeMatchStats.goals = goals
+    match.ended = true
+  }
+  const saveAwayGoals = (goals) => {
+    match.awayMatchStats.goals = goals
+    match.ended = true
+  }
+
   return (
     <div className='container p-0'>
       <div className='container text-center text-bg-dark p-0'>
         <div
-          className='row justify-content-center align-items-center text-muted p-1'
+          className='row justify-content-center align-items-center text-muted p-1 m-0'
           style={{ backgroundColor: "#3e3e3e" }}
         >
           <div className='col-1'>
@@ -21,16 +30,20 @@ const Match = ({ match }) => {
           </div>
           <div className='col-1'>
             <input
+              onChange={(e) => saveHomeGoals(e.target.value)}
               className='form-control border-0 border-bottom text-white text-center'
               style={{ backgroundColor: "#3e3e3e" }}
               type={"text"}
+              value={match.ended ? match.homeMatchStats.goals : ""}
             ></input>
           </div>
           <div className='col-1'>
             <input
+              onChange={(e) => saveAwayGoals(e.target.value)}
               className='form-control border-0 border-bottom text-white text-center'
               style={{ backgroundColor: "#3e3e3e" }}
               type={"text"}
+              value={match.ended ? match.awayMatchStats.goals : ""}
             ></input>
           </div>
           <div className='col-2'>

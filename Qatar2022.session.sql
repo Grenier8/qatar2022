@@ -1,15 +1,15 @@
 --Teams--
 --A
-INSERT INTO team (id, name, small_name, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(1, 'Qatar', 'QAT', 0, 0, 0, 0, 'A');
-INSERT INTO team (id, name, small_name, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(2, 'Ecuador', 'ECU', 0, 0, 0, 0, 'A');
-INSERT INTO team (id, name, small_name, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(3, 'Senegal', 'SEN', 0, 0, 0, 0, 'A');
-INSERT INTO team (id, name, small_name, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(4, 'Nederland', 'NED', 0, 0, 0, 0, 'A');
+INSERT INTO team (id, name, small_name, points, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(1, 'Qatar', 'QAT', 0, 0, 0, 0, 0, 'A');
+INSERT INTO team (id, name, small_name, points, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(2, 'Ecuador', 'ECU', 0, 0, 0, 0, 0, 'A');
+INSERT INTO team (id, name, small_name, points, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(3, 'Senegal', 'SEN', 0, 0, 0, 0, 0, 'A');
+INSERT INTO team (id, name, small_name, points, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(4, 'Nederland', 'NED', 0, 0, 0, 0, 0, 'A');
 
 --B
-INSERT INTO team (id, name, small_name, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(5, 'England', 'ENG', 0, 0, 0, 0, 'B');
-INSERT INTO team (id, name, small_name, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(6, 'Iran', 'IRN', 0, 0, 0, 0, 'B');
-INSERT INTO team (id, name, small_name, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(7, 'United States', 'USA', 0, 0, 0, 0, 'B');
-INSERT INTO team (id, name, small_name, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(8, 'Wales', 'WAL', 0, 0, 0, 0, 'B');
+INSERT INTO team (id, name, small_name, points, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(5, 'England', 'ENG', 0, 0, 0, 0, 0, 'B');
+INSERT INTO team (id, name, small_name, points, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(6, 'Iran', 'IRN', 0, 0, 0, 0, 0, 'B');
+INSERT INTO team (id, name, small_name, points, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(7, 'United States', 'USA', 0, 0, 0, 0, 0, 'B');
+INSERT INTO team (id, name, small_name, points, goals_for, goals_against, yellow_cards, red_cards, group_name) VALUES(8, 'Wales', 'WAL', 0, 0, 0, 0, 0, 'B');
 
 --Match Stats--
 --A

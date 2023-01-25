@@ -145,13 +145,41 @@ public class Match {
         this.awayMatchStats = awayMatchStats;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                " id='" + getId() + "'" +
-                ", homeTeam='" + getHomeTeam() + "'" +
-                ", awayTeam='" + getAwayTeam() + "'" +
-                "}";
+    public Team getWinner() {
+        if (homeMatchStats.getGoals() > awayMatchStats.getGoals()) {
+            return homeTeam;
+        } else if (homeMatchStats.getGoals() < awayMatchStats.getGoals()) {
+            return awayTeam;
+        } else {
+            return null;
+        }
+    }
+
+    public int getPointsForTeam(Team team) {
+        Team winner = getWinner();
+        if (winner == null) {
+            return 1;
+        } else if (team.getId() == winner.getId()) {
+            return 3;
+        } else {
+            return 0;
+        }
+    }
+
+    public int getGoalsForForTeam(Team team) {
+        if (team.getId() == homeTeam.getId()) {
+            return homeMatchStats.getGoals();
+        } else {
+            return awayMatchStats.getGoals();
+        }
+    }
+
+    public int getGoalsAgainstForTeam(Team team) {
+        if (team.getId() == homeTeam.getId()) {
+            return awayMatchStats.getGoals();
+        } else {
+            return homeMatchStats.getGoals();
+        }
     }
 
 }

@@ -27,6 +27,9 @@ public class Team {
     @Column(name = "small_name", nullable = false)
     private String smallName;
 
+    @Column(name = "points", nullable = false)
+    private Integer points;
+
     @Column(name = "goals_for", nullable = false)
     private Integer goalsFor;
 
@@ -45,16 +48,32 @@ public class Team {
     public Team() {
     }
 
-    public Team(Long id, String name, String smallName, Integer goalsFor, Integer goalsAgainst, Integer yellowCards,
+    public Team(Long id, String name, String smallName, Integer points, Integer goalsFor, Integer goalsAgainst,
+            Integer yellowCards,
             Integer redCards, String group) {
         this.id = id;
         this.name = name;
         this.smallName = smallName;
+        this.points = points;
         this.goalsFor = goalsFor;
         this.goalsAgainst = goalsAgainst;
         this.yellowCards = yellowCards;
         this.redCards = redCards;
         this.group = group;
+    }
+
+    public void getStatsFromMatch(MatchStats selfStats, MatchStats adversaryStats) {
+
+        if (selfStats.getGoals() == adversaryStats.getGoals()) {
+            addPoints(1);
+        } else if (selfStats.getGoals() > adversaryStats.getGoals()) {
+            addPoints(3);
+        }
+
+        addGoalsFor(selfStats.getGoals());
+        addAgainstGoals(adversaryStats.getGoals());
+        addYellowCards(selfStats.getYellowCards());
+        addRedCards(selfStats.getRedCards());
     }
 
     public Long getId() {
@@ -79,6 +98,14 @@ public class Team {
 
     public void setSmallName(String smallName) {
         this.smallName = smallName;
+    }
+
+    public Integer getPoints() {
+        return this.points;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
     }
 
     public Integer getGoalsFor() {
@@ -119,6 +146,26 @@ public class Team {
 
     public void setGroup(String group) {
         this.group = group;
+    }
+
+    public void addPoints(int points) {
+        this.points += points;
+    }
+
+    public void addGoalsFor(int goals) {
+        this.goalsFor += goals;
+    }
+
+    public void addAgainstGoals(int goals) {
+        this.goalsAgainst += goals;
+    }
+
+    public void addYellowCards(int cards) {
+        this.yellowCards += cards;
+    }
+
+    public void addRedCards(int cards) {
+        this.redCards += cards;
     }
 
 }
